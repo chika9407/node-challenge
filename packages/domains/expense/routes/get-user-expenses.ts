@@ -6,16 +6,16 @@ import { to } from '@nc/utils/async';
 
 export const router = Router();
 
-router.get('/get-user-details', async (req, res, next) => {
-  const [userError, userDetails] = await to(getUserExpenses(req.query?.userId));
+router.get('/get-user-expenses', async (req, res, next) => {
+  const [userError, userExpenses] = await to(getUserExpenses(req.query?.userId));
 
   if (userError) {
-    return next(new ApiError(userError, userError.status, `Could not get user details: ${userError}`, userError.title, req));
+    return next(new ApiError(userError, userError.status, `Could not get user expenses: ${userError}`, userError.title, req));
   }
 
-  if (!userDetails) {
+  if (!userExpenses) {
     return res.json({});
   }
 
-  return res.json(secureTrim(userDetails));
+  return res.json(secureTrim(userExpenses));
 });
