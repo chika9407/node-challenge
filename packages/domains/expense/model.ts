@@ -1,8 +1,8 @@
 import { format } from './formatter';
 import { readUserExpenses } from './data/db-user-expense';
-import { to } from '@nc/utils/async';
+import { to } from '../../utils/async';
 import { Expense } from './types';
-import { BadRequest, InternalError, NotFound } from '@nc/utils/errors';
+import { BadRequest, InternalError, NotFound } from '../../utils/errors';
 
 export async function getUserExpenses(userId): Promise<Expense> {
   if (!userId) {

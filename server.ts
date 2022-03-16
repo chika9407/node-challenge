@@ -1,11 +1,11 @@
 import config from 'config';
 import context from './middleware/context';
 import express from 'express';
-import gracefulShutdown from '@nc/utils/graceful-shutdown';
+import gracefulShutdown from './packages/utils/graceful-shutdown';
 import helmet from 'helmet';
-import Logger from '@nc/utils/logging';
+import Logger from './packages/utils/logging';
 import security from './middleware/security';
-import { router as userRoutes } from '@nc/domain-user';
+import { router as userRoutes } from './packages/domains/user';
 import { createServer as createHTTPServer, Server } from 'http';
 import { createServer as createHTTPSServer, Server as SecureServer } from 'https';
 
