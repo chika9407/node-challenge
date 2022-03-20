@@ -1,4 +1,6 @@
 import config from 'config';
+require('dotenv').config();
+
 
 config.auth.jwtSecret = 'some-fake-key';
 

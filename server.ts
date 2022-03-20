@@ -31,13 +31,17 @@ app.use(security);
 
 app.use('/user', userRoutes);
 
-app.use(function(err, req, res) {
-  res.status(500).json(err);
-});
+// app.use(function(err, req, res) {
+//   res.status(500).json(err);
+// });
+
+app.use(function(req, res){
+  res.status(404).send('Page not found')
+})
 
 server.listen(config.port, () => {
   server.ready = true;
-  logger.log(`Server started on port ${config.port}`);
+  console.log(`Server started on port ${config.port}`);
 });
 
 export default server;
